@@ -18,4 +18,10 @@ public class PageManager {
         return loginTest;
     }
 
+    public SwappingStationPage getSwappingStationPage(){
+        swappingStationPage = new SwappingStationPage(driver);
+        return swappingStationPage;
+
+    }
+
 }

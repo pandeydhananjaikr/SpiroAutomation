@@ -1,11 +1,12 @@
-package com.spiro.stepDefinition.LoginTestStepDef;
-
+package com.spiro.stepDefinitions.LoginTestStepDef;
 import com.spiro.contextManager.ContextManager;
 import com.spiro.pageObjects.LoginTest.LoginTestPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.SimpleEmail;
 
 public class LogintestStepdef {
     ContextManager contextManager;
@@ -14,7 +15,6 @@ public class LogintestStepdef {
         this.contextManager=contextManager;
         loginTest = contextManager.getPageManager().getLoginTest();
     }
-
     @Given("User is on the homepage")
     public void user_is_on_the_homepage() {
         loginTest.userIsOnHomePage();
@@ -29,8 +29,12 @@ public class LogintestStepdef {
     }
     @Then("User should be able to login")
     public void user_should_be_able_to_login() {
-        loginTest.userShouldBeAbleToLogin("dashboard");
+        loginTest.userShouldBeAbleToLogin("Dashboard");
+
+//        Email email = new SimpleEmail();
+//        email.setHostName("smtp.gmail.com");
+//        email.setSmtpPort(465);
+//        e
+
     }
-
-
 }

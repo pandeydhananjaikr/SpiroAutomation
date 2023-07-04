@@ -1,4 +1,4 @@
-package com.spiro.stepDefinition;
+package com.spiro.stepDefinitions;
 
 import com.spiro.contextManager.ContextManager;
 import io.cucumber.java.After;
@@ -10,11 +10,9 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
     ContextManager contextManager;
-
     public Hooks(ContextManager contextManager) {
         this.contextManager = contextManager;
     }
-
     @Before
     public void beforeScenario() {
 
