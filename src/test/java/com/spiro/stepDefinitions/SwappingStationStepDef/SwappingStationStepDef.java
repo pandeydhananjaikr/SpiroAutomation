@@ -5,9 +5,10 @@ import com.spiro.pageObjects.SwappingStationPageObj.SwappingStationPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.util.List;
+import java.util.Map;
 
 public class SwappingStationStepDef {
-
     ContextManager contextManager;
     SwappingStationPage swappingStationPage;
 
@@ -40,41 +41,50 @@ public class SwappingStationStepDef {
     @And("User enters installation date as {string} and service location as {string}")
     public void user_enters_installation_date_as_and_service_location_as(String installationDate, String serviceLocation) {
     swappingStationPage.userEntersInstallationDateAndServiceLocation(installationDate, serviceLocation);
+
     }
 
     @And("User enters Address as {string}")
     public void user_enters_address_as(String address) {
-
+        swappingStationPage.userEntersAddress(address);
     }
 
     @And("User enters storage capacity as {string} and charging capacity as {string}")
     public void user_enters_storage_capacity_as_and_charging_capacity_as(String storageCapacity, String chargingCapacity) {
-
+        swappingStationPage.userEntersStorageAndChargingCapacity(storageCapacity, chargingCapacity);
     }
 
     @And("User enters model number as {string}")
     public void user_enters_model_number_as(String modelNumber) {
 
+        swappingStationPage.userEntersModelNumber(modelNumber);
     }
 
     @And("User enters latitude as {string} and longitude as {string}")
     public void user_enters_latitude_as_and_longitude_as(String latitude, String longitude) {
-
+        swappingStationPage.userEntersLatitudeAndLongitude(latitude,longitude);
     }
 
-    @And("User selects the checkbox of status as {string}")
+    @And("User selects the status as {string}")
     public void user_selects_the_checkbox_of_status_as(String status) {
+        swappingStationPage.userSelectsTheStatus(status);
 
     }
 
     @And("User clicks on the submit button to create a new swapping station")
     public void user_clicks_on_the_submit_button_to_create_a_new_swapping_station() {
-
+        swappingStationPage.userClicksOnStationSubmitButton();
     }
 
-    @Then("User should be able to create a new swapping station")
-    public void user_should_be_able_to_create_a_new_swapping_station() {
+    @Then("User should be able to create a new swapping station with details as {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}")
+    public void user_should_be_able_to_create_a_new_swapping_station_with_details_as(String expectedServiceLocation, String expectedStationCode
+            ,String expectedStationName, String expectedAddress, String expectedStationCapacity
+            ,String expectedChargingCapacity, String expectedLatitude, String expectedLongitude
+            , String expectedModelNumber, String expectedInstallationDate, String expectedStatus) {
 
+        swappingStationPage.validateIfStationIsCreatedSuccessfully(expectedServiceLocation, expectedStationCode, expectedStationName
+        ,expectedAddress, expectedStationCapacity, expectedChargingCapacity, expectedLatitude,expectedLongitude
+        , expectedModelNumber, expectedInstallationDate, expectedStatus);
 
     }
 

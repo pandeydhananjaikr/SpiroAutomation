@@ -1,6 +1,5 @@
 Feature: Validate the functionality of swapping station
 
-
   Background:
     Given User is on the homepage
     When User enters the login email and password
@@ -18,9 +17,10 @@ Feature: Validate the functionality of swapping station
     And User enters storage capacity as "<Storage Capacity>" and charging capacity as "<Charging Capacity>"
     And User enters model number as "<Model Number>"
     And User enters latitude as "<latitude>" and longitude as "<longitude>"
-    And User selects the checkbox of status as "<status>"
+    And User selects the status as "<status>"
     And User clicks on the submit button to create a new swapping station
-    Then User should be able to create a new swapping station
+    Then User should be able to create a new swapping station with details as "<service location>" "<station code>" "<station name>" "<Address>" "<Storage Capacity>" "<Charging Capacity>" "<latitude>" "<longitude>" "<Model Number>" "<installation date>" "<status>"
     Examples:
-      | station code | station name | installation date | service location | Address | Storage Capacity | Charging Capacity | Model Number | latitude | longitude | status | submit |
-      | abcd1234     | abcstation   | 07/04/2023        | Togo             |         |                  |                   |              |          |           |        |        |
+      | station code | station name | installation date | service location | Address | Storage Capacity | Charging Capacity | Model Number | latitude | longitude | status   |
+      | abcd1234     | abcstation   | 07/04/2023        | Togo             | Chennai | 15               | 10                | abcd         | 10.3     | 10.3      | Inactive |
+

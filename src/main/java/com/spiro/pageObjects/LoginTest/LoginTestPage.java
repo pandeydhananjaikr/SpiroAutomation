@@ -48,16 +48,15 @@ public class LoginTestPage {
     public void clickOnLoginButton() {
         UtilsClass.waitUntilElementIsVisible(loginButton, LoginTestPage.driver, 20);
         loginButton.click();
-        UtilsClass.waitUntilElementIsVisible(dashboardOnLandingPage, LoginTestPage.driver, 50);
-
+//        UtilsClass.waitUntilElementIsVisible(dashboardOnLandingPage, LoginTestPage.driver, 50);
+        UtilsClass.waitForGivenTime(4000);
     }
-
     public void userShouldBeAbleToLogin(String expectedText) {
+        LoginTestPage.driver.navigate().to("https://uat-athena.mautoafrica.com/");
         String actualText = dashboardOnLandingPage.getText();
         logger.info("expectedText " + expectedText);
         logger.info("actualText " + actualText);
         Assert.assertEquals("Validate Successful Login", expectedText, actualText);
     }
-
 
 }
